@@ -30,6 +30,17 @@ Please leave a detailed message on the support tab.
 * This plugin does not cover other aspects of accessibility, such as content order, clear instructions, colour contrast etc.
 * You will also need to ensure that your websites theme is accessible. 
 
+== Changelog ==
+
+= 1.2.2 =
+
+* Enqueue stylesheet instead of directly printing to page.
+* Replace i18n slug with slug string instead of class reference.
+* Fix text strings for internationalization.
+* Fix bug with <fieldset> failing to be inserted.
+* Add ARIA live attribute to form validation error
+* Remove JS alert to avoid redundant notifications with ARIA
+
 == Installation ==
 
 1. This plugin requires the Gravity Forms plugin, installed and activated
