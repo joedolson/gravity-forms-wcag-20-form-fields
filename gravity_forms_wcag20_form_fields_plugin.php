@@ -110,21 +110,19 @@ if (!class_exists('ITSP_GF_WCAG20_Form_Fields')) {
 				if ( true == $field_required ) {
 					// Gravity Forms 1.9.2 appears to no longer include for attribute on field group labels 
 					// for='input_".$form_id."_".$field_id."'
-					$content = str_replace("<label class='gfield_label'  >".$field_label."<span class='gfield_required'>*</span></label>","<fieldset class='gfieldset'><legend class='gfield_label'>".$field_label."</legend>",$content);
+					$content = str_replace("<label class='gfield_label'  >".$field_label."<span class='gfield_required'>*</span></label>","<fieldset class='gfieldset'><legend class='gfield_label'>".$field_label."</legend></fieldset>",$content);
 				} else {
-					$content = str_replace("<label class='gfield_label'  >".$field_label."</label>","<fieldset class='gfieldset'><legend class='gfield_label'>".$field_label."</legend>",$content);
+					$content = str_replace("<label class='gfield_label'  >".$field_label."</label>","<fieldset class='gfieldset'><legend class='gfield_label'>".$field_label."</legend></fieldset>",$content);
 				}
-				$content .= "</fieldset>";
 			}
 			
 			if(("list" == $field_type ) ){
 				$maxRow = intval(rgar($field, "maxRows"));
 				
 				//wrap list fields in fieldset
-				$content = str_replace("<label class='gfield_label' for='input_".$form_id."_".$field_id."_shim' >".$field_label."</label>","<fieldset class='gfieldset'><legend class='gfield_label'>".$field_label."</legend>",$content);
-				$content .= "</fieldset>";
-				
-				//remove shim input 
+				$content = str_replace("<label class='gfield_label' for='input_".$form_id."_".$field_id."_shim' >".$field_label."</label>","<fieldset class='gfieldset'><legend class='gfield_label'>".$field_label."</legend></fieldset>",$content);
+
+				//remove shim input
 				$content = str_replace("<input type='text' id='input_".$form_id."_".$field_id."_shim' style='position:absolute;left:-999em;' onfocus='jQuery( \"#field_".$form_id."_".$field_id." table tr td:first-child input\" ).focus();' />","",$content);
 				
 				//replace 'add another row' image with button
