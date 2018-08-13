@@ -25,7 +25,7 @@ if (!class_exists('ITSP_GF_WCAG20_Form_Fields')) {
                 add_filter('gform_column_input_content',  array(&$this,'change_column_add_title_wcag'), 10, 6);
 				add_filter('gform_field_content',  array(&$this,'change_fields_content_wcag'), 10, 5);
 				add_action('gform_enqueue_scripts',  array(&$this,'queue_scripts'), 90, 3);
-				add_filter('gform_tabindex', create_function('', 'return false;'));   //disable tab-index
+				add_filter('gform_tabindex', '__return_false');   //disable tab-index
 				
 				add_filter('gform_validation_message', array(&$this,'change_validation_message'), 10, 2);
             }
